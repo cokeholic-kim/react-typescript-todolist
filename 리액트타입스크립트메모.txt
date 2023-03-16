@@ -1,0 +1,24 @@
+﻿타입스크립트 리액트
+
+1.props전달시 props타입을 지정
+ex>
+interface TestProps = {
+	name:string;
+	onFun:(num:number) =>void
+}
+const Test = ({name,onFun}:TestProps)=>{
+
+}
+
+2.상태 값 지정 ---> 상태 타입 지정
+1)useState<상태타입>(0)  -->generic으로 지정 초기값이있는경우 생략할수있음
+상태타입이 변경되자 않을경우 생략가능
+상태가 null일수도 있고 아닐수도 있을때 제네릭을 활용
+
+type stateobject = {
+	name:string,
+	age:number
+}
+const [state,setState] = useState<null | stateobject>(null)
+
+이벤트 개체 타입지정
